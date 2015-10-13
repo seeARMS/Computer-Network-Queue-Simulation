@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import sys
+import numpy as np
 from collections import deque
 
 queueType = 0;
@@ -38,8 +39,11 @@ def main():
 	create_report();
 
 def calc_arrival_time():
-	u = rand(0,1) #generate random number between 0...1
-	arrival_time = ((-1/lambdaVar)*log(1-u) * 1000000)
+	#generate random number between 0...1
+	# this needs to include 1 though?
+	# currently its [0, 1)
+	randomNum = np.random.uniform
+	arrival_time = ((-1 / lambdaVar)*log( 1-randomNum ) * 1000000) # lambdaVar is packets per second
 	return arrival_time
 
 def arrival(t):
