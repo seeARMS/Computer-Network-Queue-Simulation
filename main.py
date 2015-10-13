@@ -93,7 +93,7 @@ def arrival(t):
         # still has spots available
         if (_queue_type == 0 or len(_q) < _queue_type): # K size Queue
             #TODO(Colin_: append left?
-            _q.append(t)
+            _q.appendleft(t)
             # if nothing is currently being serviced,
             # push to server
             if (_currently_serving == -1):
@@ -119,7 +119,7 @@ def departure(t):
     if (len(_q) != 0):
         if (_currently_serving == -1):
             _t_departure -= 1
-            if (t_departure == 0):
+            if (_t_departure == 0):
                 _s_delay_sum += t - _currently_serving
                 _s_num_delays += 1
                 _q.pop()
